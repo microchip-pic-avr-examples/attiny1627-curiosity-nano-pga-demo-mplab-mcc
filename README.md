@@ -8,8 +8,6 @@ This code example demonstrates the Programmable Gain Amplifier (PGA) feature ins
 ## Related Documentation
 
 - [ATtiny1627 Microcontroller Product Page](https://www.microchip.com/wwwproducts/en/ATTINY1627)
-- [Video: ](#)
-- Video: "ATtiny1627 MCU Family: Using the Programmable Gain Amplifier" (working title)
 
 ## Software Used
 
@@ -31,7 +29,8 @@ This demonstration only requires the ATtiny1627 Curiosity Nano connected to a PC
 **The baud rate for the board is 115200, no parity, and 1 stop bit.**
 
 To setup MPLAB Data Visualizer as a serial terminal:
-1. Plug in the ATtiny1627 Curiosity Nano.
+1. Plug in the ATtiny1627 Curiosity Nano.  
+
 ![Step 2](./images/step2.PNG)
 
 2. Click on the plugin icon in the MPLAB X IDE toolbar.
@@ -54,7 +53,9 @@ To setup MPLAB Data Visualizer as a serial terminal:
 
 ## Operation
 
-The ATtiny1627 contains a capacitive-based PGA that is capable of amplifying small signals in order to improve signal resolution in the ADC. For this demo, the internal signal VDD/10 is measured. However, using MPLAB Code Configurator (MCC), the positive input channel can be changed to an external pin. Note: if any changes are made to the MCC, the configuration must be re-generated to change the API's behavior.
+The ATtiny1627 contains a capacitive-based PGA that is capable of amplifying small signals in order to improve signal resolution in the ADC. For this demonstration, the internal signal `VDD/10` is measured. However, using MPLAB Code Configurator (MCC), the positive input channel can be changed to an external pin. Any signal applied to this pin should not exceed the maximum ratings specified in the datasheet.
+
+**Note: If any changes are made to the MCC, the configuration must be re-generated to change the API's behavior.**
 
 ![Positive Input Multiplexer Setting](./images/ADC_input.PNG)  
 *Figure 1 - Positive Input Multiplexer Setting*
@@ -65,14 +66,20 @@ The voltage reference level used by the ADC can also be changed. Smaller voltage
 
 To demonstrate the PGA, the PGA is used to multiply the input signal (as provided VDD/10). The gain of the PGA was set to 2x, but the PGA gain can be set as high as 16x. However, using other gain values may require adjustments to the sampling time of the ADC.
 
-To trigger the ADC, the Event System was used to connect the Peripheral Interrupt Timer (PIT) to the ADC Start Trigger. The PIT runs at 1kHz, but is divided by 2048. This creates a period of approximately 2 seconds between each conversion. LED0 on the Curiosity Nano is also connected to the same event channel. Every time the LED on the Curiosity Nano goes from ON to OFF, the ADC is triggered.
+To trigger the ADC, the Event System was used to connect the Periodic Interrupt Timer (PIT) to the ADC Start Trigger. The PIT runs at 1kHz, but is divided by 2048 in the event channel. This creates a period of approximately 2 seconds between each conversion. LED0 on the Curiosity Nano is also connected to the same event channel. Visually, every time the LED on the Curiosity Nano goes from ON to OFF, the ADC is triggered.
 
 For simplicity, the microcontroller remains in sleep most of the time. When the ADC completes the conversion, the interrupt generated wakes the microcontroller from sleep to process the result. After processing and printing the result, the microcontroller goes back to sleep to wait for the next cycle.
 
 ![Example Output](./images/demo.PNG)  
 *Figure 2 - Output from the Example. VREF = 2.5V, VDD = 5V*
 
-One downside of this approach is that the program becomes very sensitive to interrupts. As an example, moving to interrupt driven UART would trigger the program to run early, causing the output to duplicate infinitely. One workaround would be to set (and clear) a software flag that is triggered from the ADC's interrupt.
+**Note: VDD on the Curiosity Nano is 3.3V by default.**
+
+One downside of this approach is that the program becomes sensitive to interrupts. As an example, moving to interrupt driven UART would trigger the program to run early, causing the output to duplicate infinitely. One workaround would be to set (and clear) a software flag that is triggered from the ADC's interrupt.
+
+## Changing VDD on the Curiosity Nano
+
+Curiosity Nano development boards ship running at 3.3V. To change the operating voltage to 5V (or another level), please consult section 3.3 in the [ATtiny1627 Curiosity Nano User's Guide](http://www.microchip.com/mymicrochip/filehandler.aspx?ddocname=en1002865).
 
 ## Summary
 

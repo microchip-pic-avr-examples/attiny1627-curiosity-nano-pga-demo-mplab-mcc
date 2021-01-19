@@ -71,8 +71,10 @@ int main(void)
         switch(getADCReferenceSetting())
         {
             case 0:     //Vdd Reference
-                printf("Vref is Vdd");
+            case 2:     //External Reference (VREF A)
+                printf("Relative Measurement Mode");
                 result = (float) ADC0_GetConversionResult() / ADC_VALUES;
+                result *= 100; 
                 unit = '%'; //Unit is % of Vdd, since we don't know what Vdd is
                 break;
             case 4:     //1.024V reference
@@ -98,8 +100,19 @@ int main(void)
 
         //Note! In order to use printf with floats on AVR, you must set the following linker options:
         //-Wl,-u,vfprintf -lprintf_flt -lm 
-        printf("\n\rADC Raw Value is %i\n\rMeasured Vdd/10 (with gain of %i): %.3f%c\n\r\n\r", (uint16_t) ADC0_GetConversionResult(), getPGAGain(), result, unit);
-
+        printf("\n\rADC Raw Value is %i\n\rMeasured Signal (with gain of %i): ",  (uint16_t) ADC0_GetConversionResult(), getPGAGain());
+        
+        if (unit == 'V')
+        {
+            //Volts
+            printf("%.3fV\n\r\n\r", result);
+        }
+        else if (unit == '%')
+        {
+            //Percentages
+            printf("%.1f%%\n\r\n\r", result);
+        }
+        
         //Wait until everything has been sent
         while (USART0_IsTxBusy());        
     }
