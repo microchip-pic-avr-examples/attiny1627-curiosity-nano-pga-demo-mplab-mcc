@@ -46,10 +46,6 @@
             ],
             [
                 "Peripherals",
-                "CCP"
-            ],
-            [
-                "Peripherals",
                 "EVSYS"
             ],
             [
@@ -71,7 +67,6 @@
         ],
         "peripherals": [
             "ADC",
-            "CCP",
             "EVSYS",
             "PORT",
             "RTC",
