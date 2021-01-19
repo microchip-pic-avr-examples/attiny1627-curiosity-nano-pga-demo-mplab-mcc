@@ -41,6 +41,7 @@ uint8_t getADCReferenceSetting(void)
     return ADC0.CTRLC & ADC_REFSEL_gm;
 }
 
+//Number of possible values for the ADC to output (4096 = 2^12)
 #define ADC_VALUES 4096
 
 int main(void)
@@ -48,58 +49,59 @@ int main(void)
     /* Initializes MCU, drivers and middleware */
     SYSTEM_Initialize();
     
+    //Result to print
     float result = 0.0;
         
+    //Pre-calculate volts per bit
     const float REF_1V = 1.024 / ADC_VALUES;
     const float REF_2V = 2.048 / ADC_VALUES;
     const float REF_2_5V = 2.5 / ADC_VALUES;
     const float REF_4V = 4.096 / ADC_VALUES;
     
+    //Unit for result
     char unit = 'V';
-
+    
     while (1){
         //Put the CPU in sleep to save power
         sleep_cpu();
         
         //Reset unit to default of "Volts"
         unit = 'V';
-        
+
         switch(getADCReferenceSetting())
         {
-            case 0: //Vdd Reference
+            case 0:     //Vdd Reference
                 printf("Vref is Vdd");
                 result = (float) ADC0_GetConversionResult() / ADC_VALUES;
                 unit = '%'; //Unit is % of Vdd, since we don't know what Vdd is
                 break;
-            case 4: //1.024V reference
+            case 4:     //1.024V reference
                 printf("Vref is 1.024V");
                 result = (REF_1V) * ADC0_GetConversionResult();
                 break;
-            case 5: //2.048V reference
+            case 5:     //2.048V reference
                 printf("Vref is 2.048V");
                 result = (REF_2V) * ADC0_GetConversionResult();
                 break;
-            case 6:
+            case 6:     //2.5V reference
                 printf("Vref is 2.5V");
                 result = (REF_2_5V) * ADC0_GetConversionResult();
                 break;
-            case 7: //4.096V reference
+            case 7:     //4.096V reference
                 printf("Vref is 4.096V");
                 result = (REF_4V) * ADC0_GetConversionResult();
                 break;
-            default:
+            default:    //Unknown Reference
                 printf("Vref is ???");
                 result = 0.00;
         }
-        
-        
 
         //Note! In order to use printf with floats on AVR, you must set the following linker options:
         //-Wl,-u,vfprintf -lprintf_flt -lm 
         printf("\n\rADC Raw Value is %i\n\rMeasured Vdd/10 (with gain of %i): %.3f%c\n\r\n\r", (uint16_t) ADC0_GetConversionResult(), getPGAGain(), result, unit);
-        
+
         //Wait until everything has been sent
-        while (USART0_IsTxBusy());
+        while (USART0_IsTxBusy());        
     }
 }
 /**

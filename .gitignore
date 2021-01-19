@@ -7,7 +7,7 @@
 /**/.generated_files/*
 
 # Uncomment these to include hex/elf files
-#!/**/[Ff]ree/production/*.hex
+!/**/[Ff]ree/production/*.hex
 #!/**/[Ff]ree/production/*.elf
-#!/**/[Pp]ro/production/*.hex
+!/**/[Pp]ro/production/*.hex
 #!/**/[Pp]ro/production/*.elf
