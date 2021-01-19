@@ -5,26 +5,26 @@
         "metaDataVersion": "1.1.0",
         "name": "com.microchip.mcu8.mplabx.project.attiny1627-curiosity-nano-pga-demo-mplab-mcc",
         "version": "1.0.0",
-        "displayName": "  ",
+        "displayName": "ATTINY1627 MCU Family - PGA Demo",
         "projectName": "attiny1627-curiosity-nano-pga-demo-mplab-mcc",
-        "shortDescription": "",
+        "shortDescription": "This example demonstrates the PGA in the ATtiny1627 MCU family",
         "ide": {
             "name": "MPLAB X",
-            "semverRange": ""
+            "semverRange": ">=5.45.0"
         },
         "compiler": [
-			{
-				"name": "XC8",
-				"semverRange": ""
-			}
-		],
+            {
+                "name": "XC8",
+                "semverRange": "^2.31.0"
+            }
+        ],
         "dfp": {
-            "name": "",
-            "semverRange": ""
+            "name": "ATtiny_DFP",
+            "semverRange": "^2.5.116"
         },
         "configurator": {
-            "name": "",
-            "semverRange": ""
+            "name": "MCC",
+            "semverRange": ">=5.02.0"
         },
         "device": {
             "metaDataVersion": "1.0.0",
@@ -32,27 +32,65 @@
             "content": {
                 "metaDataVersion": "1.0.0",
                 "category": "com.microchip.device",
-                "name": "",
+                "name": "ATTINY1627",
                 "versionRange": "*"
             }
         },
-        "author": "",
+        "author": "Microchip",
         "subcategories": [
+            "Analog",
+            "MCC",
+            [
+                "Peripherals",
+                "ADC"
+            ],
+            [
+                "Peripherals",
+                "CCP"
+            ],
+            [
+                "Peripherals",
+                "EVSYS"
+            ],
+            [
+                "Peripherals",
+                "PORT"
+            ],
+            [
+                "Peripherals",
+                "RTC"
+            ],
+            [
+                "Peripherals",
+                "USART"
+            ],
+            [
+                "Peripherals",
+                "VREF"
+            ]
         ],
         "peripherals": [
+            "ADC",
+            "CCP",
+            "EVSYS",
+            "PORT",
+            "RTC",
+            "USART",
+            "VREF"
         ],
         "keywords": [
+            "Event System"
         ],
-		"additionalData": {
-			"longDescription": {
-				"metaDataVersion": "1.0.0",
-				"category": "com.microchip.portal.fileRef",
-				"content": {
-					"metaDataVersion": "1.0.0",
-					"fileName": "./README.md",
-					"mimeType": "text/markdown"
-				}
-			}
-		}
-	}
+        "additionalData": {
+            "longDescription": {
+                "metaDataVersion": "1.0.0",
+                "category": "com.microchip.portal.fileRef",
+                "content": {
+                    "metaDataVersion": "1.0.0",
+                    "fileName": "./README.md",
+                    "mimeType": "text/markdown"
+                }
+            }
+        }
+    }
 }
