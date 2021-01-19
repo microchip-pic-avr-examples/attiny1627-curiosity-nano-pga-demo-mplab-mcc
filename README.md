@@ -30,26 +30,26 @@ This demonstration only requires the ATtiny1627 Curiosity Nano connected to a PC
 
 To setup MPLAB Data Visualizer as a serial terminal:
 1. Plug in the ATtiny1627 Curiosity Nano.  
+2. Click on the plugin icon in the MPLAB X IDE toolbar.
 
 ![Step 2](./images/step2.PNG)
 
-2. Click on the plugin icon in the MPLAB X IDE toolbar.
+3. Select the Curiosity Nano in the COM port list, but do not connect to it.
 
 ![Step 3](./images/step3.PNG)
 
-3. Select the Curiosity Nano in the COM port list, but do not connect to it.
+4. In the lower left corner of the screen setup the baud rate and bit settings as shown.
 
 ![Step 4](./images/step4.PNG)
 
-4. In the lower left corner of the screen setup the baud rate and bit settings as shown.
+5. Press the play button next to the name to connect to the COM port.
 
 ![Step 5](./images/step5.PNG)
 
-5. Press the play button next to the name to connect to the COM port.
+6. In the terminal viewer, select the connected COM port in source options.  
 
 ![Step 6](./images/step6.PNG)
 
-6. In the terminal viewer, select the connected COM port in source options.
 
 ## Operation
 
