@@ -38,11 +38,11 @@
  */
 int8_t VREF_Initialize()
 {
-    //AC0REFSEL 4V096; 
-    VREF.CTRLA = 0x03;
+    //AC0REFSEL 1V024; 
+    VREF.CTRLA = 0x00;
 
-    //NVMREFEN disabled; ADC0REFEN disabled; AC0REFEN disabled; 
-    VREF.CTRLB = 0x00;
+    //NVMREFEN disabled; ADC0REFEN disabled; AC0REFEN enabled; 
+    VREF.CTRLB = 0x01;
 
     return 0;
 }

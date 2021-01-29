@@ -55,7 +55,7 @@ To setup MPLAB Data Visualizer as a serial terminal:
 
 ## Operation
 
-The ATtiny1627 contains a capacitive-based PGA that can be used to amplify small signals in order to improve signal resolution in the ADC. For this demonstration, the internal signal `VDD/10` is measured. However, using MPLAB Code Configurator (MCC), the positive input channel can be changed to an external pin, if desired. Any signal applied to this pin should not exceed the maximum ratings specified in the datasheet.
+The ATtiny1627 contains a capacitive-based PGA that can be used to amplify small signals in order to improve signal resolution in the ADC. For this demonstration, the internal signal `DAC` (DACREF in the datasheet) is measured, with a set value of 100mV. However, using MPLAB Code Configurator (MCC), the positive input channel can be changed to an external pin, if desired. Any signal applied to this pin should not exceed the maximum ratings specified in the datasheet.
 
 **Note: If any changes are made in MCC, the configuration must be re-generated to change the API's behavior.**
 
@@ -66,11 +66,11 @@ The voltage reference level used by the ADC can also be changed. Smaller voltage
 
 **Note: The external VREF and VDD options produce a result relative to their value, e.g.: 20% (of VDD).**
 
-In this example, the PGA is used to multiply the input signal (as provided, `VDD/10`). The gain of the PGA was set to 2x in this example, but the PGA gain can be set as high as 16x. However, using other gain values may require adjustments to the sampling time of the ADC.
+In this example, the PGA is used to multiply the input signal. The demo goes through all of the PGA settings: NO PGA, 1x, 2x, 4x, 8x, and 16x.
 
 To trigger the ADC, the Event System was used to connect the Periodic Interrupt Timer (PIT) to the ADC Start Trigger. The PIT runs at 1kHz, but is divided by 2048 in the event channel. This creates a period of ~2 seconds between each conversion. LED0 on the Curiosity Nano is also connected to the same event channel. Visually, every time the LED on the Curiosity Nano goes from ON to OFF, the ADC is triggered.
 
-For simplicity, the microcontroller remains in sleep most of the time. When the ADC completes the conversion, the interrupt generated wakes the microcontroller from sleep to process the result. After processing and printing the result, the microcontroller goes back to sleep to wait for the next cycle.
+For simplicity, the microcontroller remains in sleep most of the time. When the ADC completes the conversion, the interrupt generated wakes the microcontroller from sleep to process the result. After processing and printing the result, the ADC-PGA configuration is changed. Then, the microcontroller goes back to sleep to wait for the next cycle.
 
 ![Example Output](./images/demo.PNG)  
 *Figure 2 - Output from the Example. VREF = 2.5V, VDD = 5V*
@@ -78,6 +78,14 @@ For simplicity, the microcontroller remains in sleep most of the time. When the 
 **Note: VDD on the Curiosity Nano is 3.3V by default.**
 
 One downside of this approach is that the program is sensitive to interrupts. As an example, moving to interrupt driven UART would trigger the program to run early, causing the output to duplicate infinitely. One workaround would be to set (and clear) a software flag that is triggered from the ADC's interrupt.
+
+## Sources of Error
+
+The nominal voltage of DACREF is 100mV. In figure 2, the error of the measurement increases as the gain goes up. This is primarily from 2 sources - offset error and gain error.
+
+- Offset error is a static level shift that appears on the input. This offset is affected by the gain of the PGA.
+
+- Gain error is the deviation from the expected gain value, EX: the expected gain of 16x is actually 15.9x. As the gain increases, the accuracy of the gain goes down.
 
 ## Changing VDD on the Curiosity Nano
 

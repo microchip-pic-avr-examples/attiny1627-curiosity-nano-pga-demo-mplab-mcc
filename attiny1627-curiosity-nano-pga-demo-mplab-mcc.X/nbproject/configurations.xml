@@ -22,6 +22,7 @@
           <itemPath>mcc_generated_files/include/cpuint.h</itemPath>
           <itemPath>mcc_generated_files/include/rtc.h</itemPath>
           <itemPath>mcc_generated_files/include/vref.h</itemPath>
+          <itemPath>mcc_generated_files/include/ac0.h</itemPath>
         </logicalFolder>
         <logicalFolder name="utils" displayName="utils" projectFiles="true">
           <logicalFolder name="assembler" displayName="assembler" projectFiles="true">
@@ -57,6 +58,7 @@
           <itemPath>mcc_generated_files/src/pin_manager.c</itemPath>
           <itemPath>mcc_generated_files/src/rtc.c</itemPath>
           <itemPath>mcc_generated_files/src/vref.c</itemPath>
+          <itemPath>mcc_generated_files/src/ac0.c</itemPath>
         </logicalFolder>
         <itemPath>mcc_generated_files/device_config.c</itemPath>
         <itemPath>mcc_generated_files/mcc.c</itemPath>
@@ -217,7 +219,7 @@
         <property key="communication.activationmode" value="nohv"/>
         <property key="communication.interface" value="updi"/>
         <property key="communication.speed" value="0.500"/>
-        <property key="debugoptions.useswbreakpoints" value="false"/>
+        <property key="debugoptions.useswbreakpoints" value="true"/>
         <property key="firmware.path"
                   value="Press to browse for a specific firmware version"/>
         <property key="firmware.toolpack"

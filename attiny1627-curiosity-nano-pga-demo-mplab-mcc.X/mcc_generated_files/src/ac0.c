@@ -31,34 +31,32 @@
 */
 
 
-#ifndef MCC_H
-#define	MCC_H
-
-#ifdef __cplusplus
-extern "C" {
-#endif
-
-#include "utils/compiler.h"
-#include "include/pin_manager.h"
-#include "include/vref.h"
-#include "include/adc0.h"
-#include "include/evsys.h"
-#include "include/ac0.h"
-#include "include/rtc.h"
-#include "include/cpuint.h"
-#include "include/usart0.h"
-#include "config/clock_config.h"
+#include "../include/ac0.h"
 
 /**
- * Initializes MCU, drivers and middleware in the project
-**/
-void SYSTEM_Initialize(void);
-int8_t BOD_Initialize();
-int8_t CLKCTRL_Initialize();
-int8_t SLPCTRL_Initialize();
-int8_t WDT_Initialize();
+ * \brief Initialize ac interface
+ */
+int8_t AC0_Initialize()
+{
+    //CMP disabled; 
+    AC0.INTCTRL = 0x00;
 
-#ifdef __cplusplus
+    //INVERT disabled; MUXPOS PIN0; MUXNEG PIN0; 
+    AC0.MUXCTRLA = 0x00;
+
+    //RUNSTDBY disabled; OUTEN disabled; INTMODE BOTHEDGE; LPMODE DIS; HYSMODE OFF; ENABLE disabled; 
+    AC0.CTRLA = 0x00;
+
+    //DACREF 255; 
+    AC0.DACREF = 0xFF;
+
+    return 0;
 }
-#endif
-#endif	/* MCC_H */
+
+ISR(AC0_AC_vect)
+{
+	/* Insert your AC interrupt handling code here */
+
+	/* The interrupt flag has to be cleared manually */
+	AC0.STATUS = AC_CMP_bm;
+}
