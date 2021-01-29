@@ -191,7 +191,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="ADC0" name="PIN_AIN7"/>
-         <value></value>
+         <value>AIN7</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="RTC" registerAlias="CTRLA" settingAlias="PRESCALER" alias="DIV2"/>
@@ -2035,7 +2035,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="ADC0" name="via_muxpos"/>
-         <value>Via PGA</value>
+         <value>Via ADC</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="EVSYS" registerAlias="CHANNEL4" settingAlias="CHANNEL4" alias="TCA0_CMP1_LCMP1"/>
@@ -3683,7 +3683,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="AC0" name="PIN_N0"/>
-         <value>N0</value>
+         <value>alternate</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="EVSYS" registerAlias="USERCCLLUT2A"/>
@@ -4583,7 +4583,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="ADC0" name="selectedChannels"/>
-         <value>{&quot;type&quot;:&quot;table&quot;,&quot;key&quot;:&quot;selectedChannels&quot;,&quot;dataArray&quot;: [{&quot;Pin&quot;:&quot;Internal Channel&quot;,&quot;Channel&quot;:&quot;DAC&quot;,&quot;Custom Name&quot;:&quot;channel_DAC&quot;},{&quot;Pin&quot;:&quot;Internal Channel&quot;,&quot;Channel&quot;:&quot;Temperature_sensor&quot;,&quot;Custom Name&quot;:&quot;channel_Temperature sensor&quot;},{&quot;Pin&quot;:&quot;Internal Channel&quot;,&quot;Channel&quot;:&quot;Ground&quot;,&quot;Custom Name&quot;:&quot;channel_Ground&quot;},{&quot;Pin&quot;:&quot;Internal Channel&quot;,&quot;Channel&quot;:&quot;VDD/10&quot;,&quot;Custom Name&quot;:&quot;channel_VDD/10&quot;}] }</value>
+         <value>{&quot;type&quot;:&quot;table&quot;,&quot;key&quot;:&quot;selectedChannels&quot;,&quot;dataArray&quot;: [{&quot;Pin&quot;:&quot;PIN_AIN7&quot;,&quot;Channel&quot;:&quot;PIN_AIN7&quot;,&quot;Custom Name&quot;:&quot;channel_PIN_AIN7&quot;},{&quot;Pin&quot;:&quot;Internal Channel&quot;,&quot;Channel&quot;:&quot;DAC&quot;,&quot;Custom Name&quot;:&quot;channel_DAC&quot;},{&quot;Pin&quot;:&quot;Internal Channel&quot;,&quot;Channel&quot;:&quot;VDD/10&quot;,&quot;Custom Name&quot;:&quot;channel_VDD/10&quot;},{&quot;Pin&quot;:&quot;Internal Channel&quot;,&quot;Channel&quot;:&quot;Ground&quot;,&quot;Custom Name&quot;:&quot;channel_Ground&quot;},{&quot;Pin&quot;:&quot;Internal Channel&quot;,&quot;Channel&quot;:&quot;Temperature_sensor&quot;,&quot;Custom Name&quot;:&quot;channel_Temperature sensor&quot;}] }</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="Pin Module" name="iocUserSet PC0"/>
@@ -4599,7 +4599,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="ADC0" registerAlias="MUXPOS" settingAlias="VIA"/>
-         <value>PGA</value>
+         <value>ADC</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="Pin Module" registerAlias="PORTA.PIN2CTRL"/>
@@ -4751,7 +4751,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="AC0" registerAlias="MUXCTRLA"/>
-         <value>0</value>
+         <value>3</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="EVSYS" registerAlias="CHANNEL5" settingAlias="CHANNEL5" alias="USART0_XCK"/>
@@ -5719,7 +5719,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="ADC0" registerAlias="MUXPOS"/>
-         <value>115</value>
+         <value>51</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="ADC0" registerAlias="INTCTRL" settingAlias="TRIGOVR" alias="enabled"/>
@@ -7379,7 +7379,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="AC0" name="negInputMux"/>
-         <value>Negative Pin 0</value>
+         <value>DAC Voltage Reference</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="Pin Module" registerAlias="VPORTA.IN" settingAlias="VPORTA.IN"/>
@@ -7731,7 +7731,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="AC0" registerAlias="MUXCTRLA" settingAlias="MUXNEG"/>
-         <value>PIN0</value>
+         <value>DACREF</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="Pin Module" registerAlias="PORTB.PIN6CTRL" settingAlias="PULLUPEN" alias="disabled"/>
@@ -8253,7 +8253,7 @@
       </entry>
       <entry>
          <file>mcc_generated_files\include\pin_manager.h</file>
-         <hash>850803097889467de42b13e76280ffd2ebb6e956406240f2d37d28545c23ed71</hash>
+         <hash>cbf39fbdd43fd69af913a9958e2668278b7b7e9edfef75626ea8e836dc5f2fbb</hash>
       </entry>
       <entry>
          <file>mcc_generated_files\utils\compiler.h</file>
@@ -8265,7 +8265,7 @@
       </entry>
       <entry>
          <file>mcc_generated_files\src\pin_manager.c</file>
-         <hash>557c5a0df02e621662e19093665e4d02186ecfe8971d4ccdbb60ae9f0b5a951d</hash>
+         <hash>299afc1a6f302284c7cd6db75ff4cc7e949a5d2c55630e1cf8dc8cc73c8ec0e2</hash>
       </entry>
       <entry>
          <file>mcc_generated_files\utils\interrupt_avr8.h</file>
@@ -8285,7 +8285,7 @@
       </entry>
       <entry>
          <file>mcc_generated_files\src\ac0.c</file>
-         <hash>27d3036f079bd3e19839fc2d9b931493b819d0650827a4ffacff534a3a40badf</hash>
+         <hash>7d3150e92eae63bc29a601dc534585568c060fd5ec57e8179bf8b286f964ee2f</hash>
       </entry>
       <entry>
          <file>mcc_generated_files\src\rtc.c</file>
@@ -8329,7 +8329,7 @@
       </entry>
       <entry>
          <file>mcc_generated_files\src\adc0.c</file>
-         <hash>7940f1975cd77e54d161c6199adca1ab05583a11b805142165a1dddce297187a</hash>
+         <hash>d7fbe684c849bcb09d43cd6d7c01e034343e9e9f3e6a8eafb0c998025d31335f</hash>
       </entry>
       <entry>
          <file>main.c</file>

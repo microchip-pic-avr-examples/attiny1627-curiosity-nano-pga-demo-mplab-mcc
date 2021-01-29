@@ -68,8 +68,8 @@ int8_t ADC0_Initialize()
     //TRIGOVR disabled; SAMPOVR disabled; RESOVR disabled; WCMP disabled; SAMPRDY disabled; RESRDY enabled; 
 	ADC0.INTCTRL = 0x01;
 
-    //VIA PGA; MUXPOS DAC; 
-	ADC0.MUXPOS = 0x73;
+    //VIA ADC; MUXPOS DAC; 
+	ADC0.MUXPOS = 0x33;
 
     //VIA PGA; MUXNEG GND; 
 	ADC0.MUXNEG = 0x70;

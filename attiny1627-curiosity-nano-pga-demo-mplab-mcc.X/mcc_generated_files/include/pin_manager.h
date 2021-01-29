@@ -90,24 +90,6 @@
 #define PB2_DisableDigitalInputBuffer() do { PORTB.PIN2CTRL = (PORTB.PIN2CTRL & ~PORT_ISC_gm) | 0x4 ; } while(0)
 #define PB2_EnableInterruptForLowLevelSensing() do { PORTB.PIN2CTRL = (PORTB.PIN2CTRL & ~PORT_ISC_gm) | 0x5 ; } while(0)
 
-//get/set PA6 aliases
-#define PA6_SetHigh() do { PORTA_OUTSET = 0x40; } while(0)
-#define PA6_SetLow() do { PORTA_OUTCLR = 0x40; } while(0)
-#define PA6_Toggle() do { PORTA_OUTTGL = 0x40; } while(0)
-#define PA6_GetValue() (VPORTA.IN & (0x1 << 6))
-#define PA6_SetDigitalInput() do { PORTA_DIRCLR = 0x40; } while(0)
-#define PA6_SetDigitalOutput() do { PORTA_DIRSET = 0x40; } while(0)
-#define PA6_SetPullUp() do { PORTA_PIN6CTRL  |= PORT_PULLUPEN_bm; } while(0)
-#define PA6_ResetPullUp() do { PORTA_PIN6CTRL  &= ~PORT_PULLUPEN_bm; } while(0)
-#define PA6_SetInverted() do { PORTA_PIN6CTRL  |= PORT_INVEN_bm; } while(0)
-#define PA6_ResetInverted() do { PORTA_PIN6CTRL  &= ~PORT_INVEN_bm; } while(0)
-#define PA6_DisableInterruptOnChange() do { PORTA.PIN6CTRL = (PORTA.PIN6CTRL & ~PORT_ISC_gm) | 0x0 ; } while(0)
-#define PA6_EnableInterruptForBothEdges() do { PORTA.PIN6CTRL = (PORTA.PIN6CTRL & ~PORT_ISC_gm) | 0x1 ; } while(0)
-#define PA6_EnableInterruptForRisingEdge() do { PORTA.PIN6CTRL = (PORTA.PIN6CTRL & ~PORT_ISC_gm) | 0x2 ; } while(0)
-#define PA6_EnableInterruptForFallingEdge() do { PORTA.PIN6CTRL = (PORTA.PIN6CTRL & ~PORT_ISC_gm) | 0x3 ; } while(0)
-#define PA6_DisableDigitalInputBuffer() do { PORTA.PIN6CTRL = (PORTA.PIN6CTRL & ~PORT_ISC_gm) | 0x4 ; } while(0)
-#define PA6_EnableInterruptForLowLevelSensing() do { PORTA.PIN6CTRL = (PORTA.PIN6CTRL & ~PORT_ISC_gm) | 0x5 ; } while(0)
-
 //get/set PA7 aliases
 #define PA7_SetHigh() do { PORTA_OUTSET = 0x80; } while(0)
 #define PA7_SetLow() do { PORTA_OUTCLR = 0x80; } while(0)
@@ -133,8 +115,6 @@ void PORTB_PB3_DefaultInterruptHandler(void);
 void PORTB_PB3_SetInterruptHandler(void (* interruptHandler)(void)) ;
 void PORTB_PB2_DefaultInterruptHandler(void);
 void PORTB_PB2_SetInterruptHandler(void (* interruptHandler)(void)) ;
-void PORTA_PA6_DefaultInterruptHandler(void);
-void PORTA_PA6_SetInterruptHandler(void (* interruptHandler)(void)) ;
 void PORTA_PA7_DefaultInterruptHandler(void);
 void PORTA_PA7_SetInterruptHandler(void (* interruptHandler)(void)) ;
 #endif /* PINS_H_INCLUDED */

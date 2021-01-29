@@ -79,6 +79,13 @@ For simplicity, the microcontroller remains in sleep most of the time. When the 
 
 One downside of this approach is that the program is sensitive to interrupts. As an example, moving to interrupt driven UART would trigger the program to run early, causing the output to duplicate infinitely. One workaround would be to set (and clear) a software flag that is triggered from the ADC's interrupt.
 
+## MCC Warnings
+In some versions of MCC, there are 2 warnings that are triggered:
+
+- "ADC0: Enable Peripheral" - when using the internal DACREF signal.
+
+- "ADC0: Set MUXPOS and MUXNEG to via PGA"
+
 ## Sources of Error
 
 The nominal voltage of DACREF is 100mV. In figure 2, the error of the measurement increases as the gain goes up. This is primarily from 2 sources - offset error and gain error.

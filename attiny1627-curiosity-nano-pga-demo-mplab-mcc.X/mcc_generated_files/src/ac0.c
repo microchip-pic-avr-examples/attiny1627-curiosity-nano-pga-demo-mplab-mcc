@@ -41,8 +41,8 @@ int8_t AC0_Initialize()
     //CMP disabled; 
     AC0.INTCTRL = 0x00;
 
-    //INVERT disabled; MUXPOS PIN0; MUXNEG PIN0; 
-    AC0.MUXCTRLA = 0x00;
+    //INVERT disabled; MUXPOS PIN0; MUXNEG DACREF; 
+    AC0.MUXCTRLA = 0x03;
 
     //RUNSTDBY disabled; OUTEN disabled; INTMODE BOTHEDGE; LPMODE DIS; HYSMODE OFF; ENABLE disabled; 
     AC0.CTRLA = 0x00;
