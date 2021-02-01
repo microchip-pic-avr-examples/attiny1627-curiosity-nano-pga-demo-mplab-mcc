@@ -82,9 +82,10 @@ One downside of this approach is that the program is sensitive to interrupts. As
 ## MCC Warnings
 In some versions of MCC, there are 2 warnings that are triggered:
 
-- "ADC0: Enable Peripheral" - when using the internal DACREF signal.
+- "ADC0: Enable Peripheral"  
+- "ADC0: Set MUXPOS and MUXNEG to 'Via PGA'"
 
-- "ADC0: Set MUXPOS and MUXNEG to via PGA"
+These warnings can be ignored in this example. 
 
 ## Sources of Error
 
