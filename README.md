@@ -30,7 +30,7 @@ This demonstration only requires the ATtiny1627 Curiosity Nano connected to a PC
 
 ### Setting Up - MPLAB X Data Visualizer
 
-**Note: If MPLAB Data Visualizer is not installed, then the icon will not appear in the toolbar. (This example uses the plug-in version). MPLAB Data Visualizer can be downloaded from [here](https://www.microchip.com/mplab/mplab-data-visualizer?utm_source=GitHub&utm_medium=TextLink&utm_campaign=MCU8_MMTCha_attiny1627&utm_content=pga-demo-github-tiny2).**
+*Note: If MPLAB Data Visualizer is not installed, then the icon will not appear in the toolbar. (This example uses the plug-in version). MPLAB Data Visualizer can be downloaded from [here](https://www.microchip.com/mplab/mplab-data-visualizer?utm_source=GitHub&utm_medium=TextLink&utm_campaign=MCU8_MMTCha_attiny1627&utm_content=pga-demo-github-tiny2).*
 
 To setup MPLAB Data Visualizer as a serial terminal:
 1. Plug in the ATtiny1627 Curiosity Nano.  
