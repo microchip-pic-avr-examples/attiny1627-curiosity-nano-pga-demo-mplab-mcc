@@ -1,7 +1,8 @@
+// Jenkinsfile v2.0.0
 pipeline {
     agent {
         kubernetes {
-            label 'attiny1627-curiosity-nano-pga-demo-mplab-mcc'
+
 			defaultContainer 'xc8-mplabx'
             yamlFile '.citd/cloudprovider.yml'
         }
