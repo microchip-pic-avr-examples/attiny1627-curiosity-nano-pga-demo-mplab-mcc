@@ -11,12 +11,14 @@ This code example demonstrates the Programmable Gain Amplifier (PGA) feature ins
 
 ## Software Used
 
-- [MPLAB® X IDE v5.45 or newer](https://www.microchip.com/mplab/mplab-x-ide?utm_source=GitHub&utm_medium=TextLink&utm_campaign=MCU8_MMTCha_attiny1627&utm_content=pga-demo-github-tiny2)
-- [MPLAB XC8 v2.31 or newer](https://www.microchip.com/en-us/development-tools-tools-and-software/mplab-xc-compilers?utm_source=GitHub&utm_medium=TextLink&utm_campaign=MCU8_MMTCha_attiny1627&utm_content=pga-demo-github-tiny2)
+- [MPLAB® X IDE v6.05 or newer](https://www.microchip.com/mplab/mplab-x-ide?utm_source=GitHub&utm_medium=TextLink&utm_campaign=MCU8_MMTCha_attiny1627&utm_content=pga-demo-github-tiny2)
+- [MPLAB XC8 v2.41 or newer](https://www.microchip.com/en-us/development-tools-tools-and-software/mplab-xc-compilers?utm_source=GitHub&utm_medium=TextLink&utm_campaign=MCU8_MMTCha_attiny1627&utm_content=pga-demo-github-tiny2)
 - [MPLAB Data Visualizer Plugin](https://www.microchip.com/mplab/mplab-data-visualizer?utm_source=GitHub&utm_medium=TextLink&utm_campaign=MCU8_MMTCha_attiny1627&utm_content=pga-demo-github-tiny2) or alternative serial COM port terminal
 - [MPLAB Code Configurator (MCC) v5.0.2 or newer](https://www.microchip.com/mplab/mplab-code-configurator?utm_source=GitHub&utm_medium=TextLink&utm_campaign=MCU8_MMTCha_attiny1627&utm_content=pga-demo-github-tiny2)
 - [MPLAB Code Configurator (MCC) Device Libraries 8-bit AVR MCUs v2.7.0](https://www.microchip.com/mplab/mplab-code-configurator?utm_source=GitHub&utm_medium=TextLink&utm_campaign=MCU8_MMTCha_attiny1627&utm_content=pga-demo-github-tiny2)
 - [Microchip ATtiny_DFP (v2.5.116) or newer](https://packs.download.microchip.com/)
+
+**Note: For all older DFPs, change line 60 in main.c from `ADC0.MUXPOS |= (ADC_VIA_0_bm);` to `ADC0.MUXPOS |= (ADC_VIA0_bm);`.**
 
 ## Hardware Used
 
