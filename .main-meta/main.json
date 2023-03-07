@@ -2,25 +2,25 @@
     "metaDataVersion": "1.0.0",
     "category": "com.microchip.ide.project",
     "content": {
-        "metaDataVersion": "1.1.0",
+        "metaDataVersion": "1.3.0",
         "name": "com.microchip.mcu8.mplabx.project.attiny1627-curiosity-nano-pga-demo-mplab-mcc",
-        "version": "1.0.0",
+        "version": "1.0.1",
         "displayName": "ATTINY1627 MCU Family - PGA Demo",
         "projectName": "attiny1627-curiosity-nano-pga-demo-mplab-mcc",
         "shortDescription": "This example demonstrates the PGA in the ATtiny1627 MCU family",
         "ide": {
             "name": "MPLAB X",
-            "semverRange": ">=5.45.0"
+            "semverRange": ">=6.0.5"
         },
         "compiler": [
             {
                 "name": "XC8",
-                "semverRange": "^2.31.0"
+                "semverRange": "^2.41.0"
             }
         ],
         "dfp": {
             "name": "ATtiny_DFP",
-            "semverRange": "^2.5.116"
+            "semverRange": "^3.0.151"
         },
         "configurator": {
             "name": "MCC",
@@ -37,44 +37,17 @@
             }
         },
         "author": "Microchip",
-        "subcategories": [
-            "Analog",
-            "MCC",
-            [
-                "Peripherals",
-                "ADC"
-            ],
-            [
-                "Peripherals",
-                "EVSYS"
-            ],
-            [
-                "Peripherals",
-                "PORT"
-            ],
-            [
-                "Peripherals",
-                "RTC"
-            ],
-            [
-                "Peripherals",
-                "USART"
-            ],
-            [
-                "Peripherals",
-                "VREF"
-            ]
-        ],
         "peripherals": [
             "ADC",
             "EVSYS",
             "PORT",
             "RTC",
             "USART",
-            "VREF"
+            "VREF",
+            "EVSYS"
         ],
         "keywords": [
-            "Event System"
+            "PGA", "Analog", "Sleep"
         ],
         "additionalData": {
             "longDescription": {
