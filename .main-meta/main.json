@@ -38,7 +38,7 @@
         },
         "author": "Microchip",
         "peripherals": [
-            "ADC", "EVSYS", "RTC", "USART", "VREF", "EVSYS"
+            "ADC", "EVSYS", "RTC", "USART", "VREF"
         ],
         "keywords": [
             "PGA", "Analog", "Sleep"
