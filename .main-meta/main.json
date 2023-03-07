@@ -40,7 +40,6 @@
         "peripherals": [
             "ADC",
             "EVSYS",
-            "PORT",
             "RTC",
             "USART",
             "VREF",
