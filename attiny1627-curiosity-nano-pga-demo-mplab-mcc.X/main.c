@@ -57,7 +57,7 @@ void enablePGAConnection(void)
     ADC0.MUXPOS &= ~(ADC_VIA_gm);
     
     //Set the bits
-    ADC0.MUXPOS |= (ADC_VIA0_bm);
+    ADC0.MUXPOS |= (ADC_VIA_0_bm);
 }
 
 /**
